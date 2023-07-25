@@ -1,0 +1,34 @@
+name: CI
+
+on:
+
+  push:
+    branches: [ main ]
+    
+  workflow_dispatch:
+
+jobs:
+
+  CI:
+  
+    runs-on: ubuntu-latest
+    
+    steps:
+    
+      - uses: actions/checkout@v2
+      
+      - name: Setup do NodeJS
+        uses: actions/setup-node@v3.0.0
+        with:
+          node-version: 16.13.2
+
+      - name: Instalacao do Mocha e pacotes para testes
+        run: |
+          cd src;
+          npm install -g mocha;
+          npm install;
+          
+      - name: Execucao dos testes
+        run: mocha src/test/convert.js
+          
+        
