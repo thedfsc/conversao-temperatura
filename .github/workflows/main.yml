@@ -46,7 +46,7 @@ jobs:
           file: ./src/Dockerfile
           push: true
           tags: |
-            thedfsc/aula-conversao-temperatura:v1
+            thedfsc/aula-conversao-temperatura:${{github.run_number}}
             thedfsc/aula-conversao-temperatura:latest
       
         
